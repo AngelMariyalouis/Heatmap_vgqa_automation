@@ -56,6 +56,11 @@ WebElement reportcount;
 @CacheLookup
 WebElement bookmark;
 
+@FindBy(how = How.XPATH, using="//div[@data-id='starred']")
+@CacheLookup
+WebElement bookmark_count;
+
+
 @FindBy(how = How.XPATH, using="(//tr[@data-id='savedReportRow'])[1]")
 @CacheLookup
 WebElement savedReport_text;
@@ -112,6 +117,12 @@ public void reportcount_method()
 {
 	System.out.println(reportcount.getText());
 }
+
+public void Bookmark_count_method() 
+{
+	System.out.println(bookmark_count.getText());
+}
+
 public void click_bookmark_method() 
 {
 	JavascriptExecutor js = (JavascriptExecutor) driver;

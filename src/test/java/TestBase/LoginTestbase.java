@@ -71,10 +71,10 @@ public void LoginCredentials() throws InterruptedException {
 public void open_heatmapReport() throws InterruptedException 
 
 {
-	Thread.sleep(5000);
-	
+	driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 	report.set_reportDashboradbutton();
-	driver.navigate().refresh();
+	//driver.navigate().refresh();
+	driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 	report.searchSurvey_method("Recurring survey-20191113");
 	Thread.sleep(5000);
 	//driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
@@ -140,10 +140,12 @@ public void saveAS_Report_method() throws InterruptedException
 	savereportpage.click_saveAsDropdown();
 	savereportpage.click_saveAsButton();
 	Thread.sleep(3000);
-	savereportpage.Add_reportName("Mothers Name Report Data R78");
+	savereportpage.Add_reportName("Mothers Name Report Data R79");
 	savereportpage.Click_saveButton();
-	Thread.sleep(3000);
-     savereportpage.click_goBack_button();
+	//Thread.sleep(5000);
+	driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+    //savereportpage.click_goBack_button();
+	driver.navigate().back();
 }
 
 public void deletereport() throws InterruptedException 
@@ -239,27 +241,31 @@ public void Settings_Close_Report() throws InterruptedException
 }
 
 public void choose_ManagerTo_MotherName() throws InterruptedException 
-{
+{   
+	Thread.sleep(5000);
 	filterpage.click_managerDropdown();
-	Thread.sleep(3000);
+	Thread.sleep(5000);
 	filterpage.select_motherName_method();
-	Thread.sleep(3000);
-	filterpage.click_managerDropdown();
 }
 
 public void get_saved_ReportText() throws InterruptedException 
 {
+	Thread.sleep(3000);
 	report.set_reportDashboradbutton();
-	Thread.sleep(3000);
+	report.Bookmark_count_method();
+	driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 	report.click_bookmark_method();
-	Thread.sleep(3000);
+	driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+	report.Bookmark_count_method();
 	report.get_savedreport_text_method();
 }
 
 public void select_sortOption() throws InterruptedException
 {
 	filterpage.click_sortDropdown();
+	Thread.sleep(5000);
 	filterpage.click_sortQus_method();
+	Thread.sleep(5000);
 	filterpage.click_SortPopulation_method();
 }
 

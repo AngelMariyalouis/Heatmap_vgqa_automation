@@ -515,12 +515,11 @@ public void click_managerDropdown()
                                       // sorting
 public void click_sortDropdown() throws InterruptedException
 {
-	Thread.sleep(5000);
-	JavascriptExecutor js = (JavascriptExecutor) driver;
-	js.executeScript("window.scrollBy(0,950)", "");
 	
-	driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	js.executeScript("window.scrollBy(0,750)", "");
 	sort_dropdown.click();
+	Thread.sleep(5000);
 }
 
 public void click_sortQus_method()
